@@ -1,3 +1,5 @@
+using System;
+ using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -18,12 +20,12 @@ public class DetectCellLocation : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            Debug.Log(worldPosition);
+            Debug.Log("Origen "+ cellPosition);
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log(cellPosition);
+            Debug.Log("Destino " + cellPosition);
             var actualTile = tilemap.GetTile(cellPosition);
         }
     }
