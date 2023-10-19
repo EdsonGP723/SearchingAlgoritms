@@ -1,5 +1,5 @@
 using System;
- using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,6 +10,8 @@ public class DetectCellLocation : MonoBehaviour
     public Tilemap tilemap;
     public TileBase origin;
     public TileBase end;
+
+    public FloodFill startpoint;
 
     private void Update()
     {
@@ -25,6 +27,7 @@ public class DetectCellLocation : MonoBehaviour
             var actualTile = tilemap.GetTile(cellPosition);
             if (actualTile == null) { return; }
             Debug.Log("Origen "+ cellPosition);
+            startpoint.startingPoint = cellPosition;
             TileFlags flags = tilemap.GetTileFlags(cellPosition);
             tilemap.SetTile(cellPosition, origin);
             tilemap.SetTileFlags(cellPosition, flags);
