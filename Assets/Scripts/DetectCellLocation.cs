@@ -11,7 +11,7 @@ public class DetectCellLocation : MonoBehaviour
     public TileBase origin;
     public TileBase end;
 
-    public FloodFill startpoint;
+    public FloodFill startpoint, endpoint;
 
     private void Update()
     {
@@ -39,6 +39,7 @@ public class DetectCellLocation : MonoBehaviour
             var actualTile = tilemap.GetTile(cellPosition);
             if (actualTile == null) { return; }
             Debug.Log("Destino " + cellPosition);
+            endpoint.objective = cellPosition;
             TileFlags flags = tilemap.GetTileFlags(cellPosition);
             tilemap.SetTile(cellPosition, end);
             tilemap.SetTileFlags(cellPosition, flags);
